@@ -59,3 +59,34 @@ void goToNode(node *node, int level) {
     
     printf("\n");
 }
+
+void staticSemantics(node *node, int *var_count) {
+    if (node != NULL) {
+        if (n->label == S_nd) {
+            int i; 
+            int *var_count = (int*)malloc(sizeof(int));
+            *var_count = 0;
+
+            preorder(n, var_count);
+            
+            for (i = 0; i < *var_count; i++) {
+                pop();
+            }
+
+            free(var_count);
+        }
+        else {
+            preorder(node, var_count);
+        }
+    }
+}
+
+void preorder(node* node, int* var_count) {
+    if (node != NULL) {
+        verifyNode(node, var_count);
+        staticSemantics(node->token_1, var_count);
+        staticSemantics(node->token_2, var_count);
+        staticSemantics(node->token_3, var_count);
+        staticSemantics(node->token_4, var_count);
+    }
+}

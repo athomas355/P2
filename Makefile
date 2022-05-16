@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -g
-TARGET = frontEnd
-OBJS = main.o parser.o scanner.o testTree.o
+TARGET = statSem
+OBJS = main.o parser.o scanner.o testTree.o stack.o
 
 #%.o: %.c
 	#$(CC) $(CFLAGS) -c $<
@@ -21,6 +21,9 @@ scanner.o:
 testTree.o: 
 	$(CC) $(CFLAGS) -c testTree.c
 
+stack.o:
+	$(CC) $(CFLAGS) -c stack.c
 
+:
 clean:
 	/bin/rm -f *.o $(TARGET)

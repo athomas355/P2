@@ -4,6 +4,7 @@
 #include "node.h"
 #include "parser.h"
 #include "testTree.h"
+#include "stack.h"
 
 int main(int argc, char* argv[]) {
 	
@@ -33,8 +34,8 @@ int main(int argc, char* argv[]) {
 	}
 
 	node* root = parser(file_ptr);
-	//printf(" {%s, %s, %d}", token_names[root->token_1.tok_type], root->token_1.label, root->token_1.line_number);
-	traversePreorder(root, 0);
+	//traversePreorder(root, 0);
+	staticS
 
 	fclose(file_ptr);
 	free(file_name);
